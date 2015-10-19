@@ -21,7 +21,7 @@ The point estimate is not included in the simulated difference in proportions. I
 ##3.28.
 $p_{1}$ hat = 0.088
 $p_{2}$ hat = 0.08
-point estimate: $/hat{p_{1}}$ - $/hat{p_{2}}$ = 0.008
+point estimate: p~1~ hat - p~2~ hat = 0.008
 Z =1.96 (95% confidence interval)
 SE = 0.00485
 95% confident that the difference of porportion of Califonians and Oregonians who are sleep deprived is between 0.15% and 1.7%.
