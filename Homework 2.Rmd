@@ -1,0 +1,120 @@
+---
+title: "Homework 2"
+author: "Justine"
+date: "October 19, 2015"
+output: html_document
+---
+#PART 1
+
+##2.2
+###a.
+The proportion of patients in the treatment group who have died is 0.65. The proprotion of patients in the control group who have died is 0.88.
+###b.
+####i.
+H0: Transplants have no effect on patient survial. pt - pc = 0.
+HA: Transplants have an impact on survival. pt- pc does not equal 0.
+####ii.
+28, 75, 69, 34, 0, -0.23.
+####iii. 
+The point estimate is not included in the simulated difference in proportions. It seems to suggest that we reject the null hypothesis and the treatment is effective.
+
+##3.28.
+p1 hat = 0.088
+p2 hat = 0.08
+point estimate: p1 hat - p2 hat = 0.008
+Z =1.96 (95% confidence interval)
+SE = 0.00485
+95% confident that the difference of porportion of Califonians and Oregonians who are sleep deprived is between 0.15% and 1.7%.
+
+##3.30.
+###a.
+H0: Sleep deprevation is not effected by living in different states
+HA: Sleep deperation is different within Oregan and California
+check conditons: Random samples, independent and normally distriubted. Also each group is independent. Therefore we can use the T-Test.
+point estimate = 0.0823
+null value = 0
+SE = 0.00476
+Z = 1.68
+p= 0.9535
+0.0465 < 0.05
+Reject the null hypothesis
+###b.
+Type 1 Error reject the null hypothesis when is actaully true.
+
+##4.16.
+###a.
+Parameter of interest: the mean hours of all working Americans
+point estimate: 41.8-49.4 =2.4
+###b.
+Independence between groups, normally distributed, and independence between individuals. Conditions are met
+###c.
+H0: mean1 - mean2 =0
+HA: mean1 does not equal mean2
+SE= 0.894
+T = 2.684
+df= 504
+p less than 0.010 for a two tail test 0.005 for a one tail test.
+smaller than 0.05 so we reject the null hypothesis
+###d.
+Those will college degrees might have jobs that are more challenging and thus require more time.
+
+##5.10
+###a.
+Slight positive coorlation.
+###b.
+Strong positive linear coorlation
+###c.
+Diameter because the residuals are closer to 1 and there is a stronger coorlation.
+
+#PART 2
+##1.
+```{r}
+download.file("http://www.openintro.org/stat/data/ames.RData", destfile = "ames.RData")
+load("ames.RDATA")
+price <- ames$SalePrice
+samp1 <- sample(price, 60)
+pe <- mean(samp1)
+pe
+samp_mean <- mean(samp1)
+```
+##2.
+```{r}
+samp_mean <- rep(NA, 50)
+samp_sd <- rep(NA, 50)
+for(i in 1:50){
+samp <- sample(price, 60)
+samp_mean[i] <- mean(samp) 
+samp_sd[i] <- sd(samp)
+}
+hist(samp_mean)
+```
+##3. 
+```{r}
+lower_vector <- samp_mean - 1.96 * samp_sd / sqrt(60)
+upper_vector <- samp_mean + 1.96 * samp_sd / sqrt(60)
+c(lower_vector[1], upper_vector[1])
+plot_ci(lower_vector, upper_vector, mean(price))
+```
+
+0.88 of confidence intervals include the true population mean. This less than the confidence interval of 95%. Possibly this is due to the small sample size which can effect the standard Error.
+
+##4.
+```{r}
+lower_vector <- samp_mean - 2.58 * samp_sd / sqrt(60)
+upper_vector <- samp_mean + 2.58 * samp_sd / sqrt(60)
+c(lower_vector, upper_vector)
+plot_ci(lower_vector, upper_vector, mean(price))
+```
+For a 99% confidence interval, the critical value is 2.58
+
+##5.
+```{r}
+lower_vector <- samp_mean - 2.58 * samp_sd / sqrt(60)
+upper_vector <- samp_mean + 2.58 * samp_sd / sqrt(60)
+c(lower_vector[1], upper_vector[1])
+plot_ci(lower_vector, upper_vector, mean(price))
+df <- data.frame(lower_vector = lower_vector, upper_vector = upper_vector)
++nrow(subset(df, lower_vector < mean(ames$SalePrice) & upper_vector > mean(ames$SalePrice))) / length(sample_means60)
+```
+
+This creates a confidence interval of 98%, and only one confidence interval does not include the mean.
