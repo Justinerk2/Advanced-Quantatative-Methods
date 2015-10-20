@@ -11,25 +11,25 @@ output: html_document
 The proportion of patients in the treatment group who have died is 0.65. The proprotion of patients in the control group who have died is 0.88.
 ###b.
 ####i.
-$H_{0}$: Transplants have no effect on patient survial. $p_{t}$ - $p_{c}$ = 0.
-$H_{A}$: Transplants have an impact on survival. $p_{t}$ - $p_{c}$ does not equal 0.
+H0 Transplants have no effect on patient survial. pt - pc = 0.
+HA: Transplants have an impact on survival. pt - pc does not equal 0.
 ####ii.
 28, 75, 69, 34, 0, -0.23.
 ####iii. 
 The point estimate is not included in the simulated difference in proportions. It seems to suggest that we reject the null hypothesis and the treatment is effective.
 
 ##3.28.
-$p_{1}$ hat = 0.088
-$p_{2}$ hat = 0.08
-point estimate: p~1~ hat - p~2~ hat = 0.008
+1 hat = 0.088
+p2 hat = 0.08
+point estimate: p1 hat - p2 hat = 0.008
 Z =1.96 (95% confidence interval)
 SE = 0.00485
 95% confident that the difference of porportion of Califonians and Oregonians who are sleep deprived is between 0.15% and 1.7%.
 
 ##3.30.
 ###a.
-$H_{0}$: Sleep deprevation is not effected by living in different states
-$H_{A}$: Sleep deperation is different within Oregan and California
+H0: Sleep deprevation is not effected by living in different states
+HA: Sleep deperation is different within Oregan and California
 check conditons: Random samples, independent and normally distriubted. Also each group is independent. Therefore we can use the T-Test.
 point estimate = 0.0823
 null value = 0
@@ -48,8 +48,8 @@ point estimate: 41.8-49.4 =2.4
 ###b.
 Independence between groups, normally distributed, and independence between individuals. Conditions are met
 ###c.
-${H_{0}$: $mu_{1}$ - $mu{2}$ =0
-$H_{A}$: $mu_{1}$ does not equal $mu_{2}$
+H0: mu1 - mu2 =0
+HA: mu1 does not equal mu2
 SE= 0.894
 T = 2.684
 df= 504
